@@ -1,0 +1,20 @@
+Merge into app/Models/User.php:
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Auditable;
+// inside class:  use SoftDeletes, Auditable;
+// $fillable add: 'role_id','phone','is_active','max_discount_percent'
+// keep $hidden: 'password','remember_token'
+
+public function role() { return $this->belongsTo(Role::class); }
+
+public function can_do(string $permission): bool
+{
+    if ($this->role?->name === 'owner') return true;
+    return $this->permissionKeys()->contains($permission);
+}
+public function permissionKeys()
+{
+    return cache()->remember("user.{$this->id}.perms", 300, fn () =>
+        $this->role ? $this->role->permissions()->pluck('key') : collect());
+}
