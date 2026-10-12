@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'owner_setup' => [
+        'email' => env('OWNER_EMAIL'),
+        'password' => env('OWNER_PASSWORD'),
+        'token' => env('OWNER_SETUP_TOKEN'),
+    ],
+
+
 ];
