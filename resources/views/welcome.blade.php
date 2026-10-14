@@ -219,7 +219,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         @auth
             <a href="{{ route('dashboard') }}" class="btn btn-dark">Open dashboard <span class="arrow">→</span></a>
         @else
-            <a href="{{ route('login') }}" class="btn btn-dark">Staff log in <span class="arrow">→</span></a>
+            <a href="{{ route('login') }}" class="btn btn-dark">Owner log in <span class="arrow">→</span></a>
         @endauth
     </div>
 </header>
@@ -239,7 +239,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
                 @auth
                     <a href="{{ route('dashboard') }}" class="btn btn-dark">Open dashboard <span class="arrow">→</span></a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-dark">Staff log in <span class="arrow">→</span></a>
+                    <a href="{{ route('login') }}" class="btn btn-dark">Owner log in <span class="arrow">→</span></a>
                 @endauth
                 <a href="#features" class="btn btn-ghost">See what it does</a>
             </div>
@@ -366,7 +366,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <footer>
     <div class="wrap">
         <span>© {{ date('Y') }} {{ $name }}</span>
-        <span>Staff access only</span>
+        <span>Owner access only</span>
     </div>
 </footer>
 
